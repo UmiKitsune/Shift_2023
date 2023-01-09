@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/IT/Android/Shift_2023/TZ/Shift_tz_2023/app/src/main/res/layout/activity_main.xml" value="0.2074074074074074" />
+        <entry key="..\:/IT/Android/Shift_2023/TZ/Shift_tz_2023/app/src/main/res/layout/fragment_history.xml" value="0.3388888888888889" />
+        <entry key="..\:/IT/Android/Shift_2023/TZ/Shift_tz_2023/app/src/main/res/layout/fragment_home.xml" value="0.2188449848024316" />
+        <entry key="..\:/IT/Android/Shift_2023/TZ/Shift_tz_2023/app/src/main/res/layout/item_history.xml" value="0.1" />
+        <entry key="..\:/IT/Android/Shift_2023/TZ/Shift_tz_2023/app/src/main/res/menu/menu_bottom_nav.xml" value="0.2074074074074074" />
+        <entry key="..\:/IT/Android/Shift_2023/TZ/Shift_tz_2023/app/src/main/res/menu/menu_bottom_nuv.xml" value="0.2074074074074074" />
+        <entry key="..\:/IT/Android/Shift_2023/TZ/Shift_tz_2023/app/src/main/res/menu/nav_graph_bottom.xml" value="0.14" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
