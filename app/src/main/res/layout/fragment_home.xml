@@ -3,18 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.HomeFragment">
 
-    <EditText
-        android:id="@+id/homeBIN"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:ems="10"
-        android:maxLength="8"
-        android:inputType="number"
-        />
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/homeBIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ems="10"
+            android:maxLength="8"
+            android:inputType="number"
+            />
+        <ImageButton
+            android:id="@+id/homeBtnGetBINData"
+            android:src="@drawable/ic_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/home_search_button" />
+    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,7 +35,208 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/scheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_scheme"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/homeScheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingBottom="10dp"
+                tools:text="Visa"
+                app:layout_constraintTop_toBottomOf="@id/scheme"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_brand"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@id/homeScheme"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/homeBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingBottom="10dp"
+                tools:text="Visa/Dankort"
+                app:layout_constraintTop_toBottomOf="@id/brand"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/cardNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_card_number"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@id/homeBrand"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_length"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@id/cardNumber"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/homeCardNumberLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                tools:text="16"
+                app:layout_constraintTop_toBottomOf="@id/length"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/luhn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_luhn"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@id/cardNumber"
+                app:layout_constraintStart_toEndOf="@id/length"/>
+
+            <TextView
+                android:id="@+id/homeCardNumberLuhn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                tools:text="Yes"
+                app:layout_constraintTop_toBottomOf="@id/luhn"
+                app:layout_constraintStart_toEndOf="@id/length"/>
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_type"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/homeType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingBottom="10dp"
+                tools:text="Debit"
+                app:layout_constraintTop_toBottomOf="@id/type"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/prepaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_prepaid"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@id/homeType"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/homePrepaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingBottom="10dp"
+                tools:text="No"
+                app:layout_constraintTop_toBottomOf="@id/prepaid"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_country"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@id/homePrepaid"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/homeAlpha2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:paddingBottom="10dp"
+                tools:text="dn"
+                app:layout_constraintTop_toBottomOf="@id/country"
+                app:layout_constraintEnd_toStartOf="@id/homeCountry"/>
+
+            <TextView
+                android:id="@+id/homeCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                tools:text="Denmark"
+                app:layout_constraintTop_toBottomOf="@id/country"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/homeLatitudeLongitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="50dp"
+                tools:text="(latitude: 56, longitude: 10)"
+                app:layout_constraintTop_toBottomOf="@id/homeCountry"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/homeLatitudeLongitude"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/bank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_bank"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/homeBankName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    tools:text="Jyske Bank"/>
+
+                <TextView
+                    android:id="@+id/homeBankCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    tools:text="Hjørring"/>
+
+                <TextView
+                    android:id="@+id/homeBankUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="www.jyskebank.dk"/>
+
+                <TextView
+                    android:id="@+id/homeBankNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="+4589893300"/>
+
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -30,3 +244,5 @@
 
 
 </LinearLayout>
+<!--todo: при вводе в клавиатуре будет значек поиска тоже!!?
+todo: если бин меньше 6 выдать сообщение об ошибке-->

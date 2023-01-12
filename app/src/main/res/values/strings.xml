@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">Shift_tz_2023</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_home">Главная</string>
     <string name="menu_history">История запросов</string>
+    <string name="home_search_button">search button</string>
+    <string name="home_scheme">scheme</string>
+    <string name="home_brand">brand</string>
+    <string name="home_card_number">card number</string>
+    <string name="home_length">length</string>
+    <string name="home_luhn">luhn</string>
+    <string name="home_type">type</string>
+    <string name="home_prepaid">prepaid</string>
+    <string name="home_country">country</string>
+    <string name="home_bank">bank</string>
+
+    <string name="home_fragment_latitude_longitude">(latitude: %d, longitude: %d)</string>
 </resources>
