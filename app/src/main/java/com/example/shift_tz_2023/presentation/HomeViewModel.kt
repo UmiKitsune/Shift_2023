@@ -4,17 +4,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.shift_tz_2023.data.CardInfoRepositoryImpl
-import com.example.shift_tz_2023.data.web.model.CardInfoModel
-import com.example.shift_tz_2023.domain.usecase.GetCardInfoByBIN
-import kotlinx.coroutines.*
+import com.example.shift_tz_2023.domain.UiCardInfoModel
+import com.example.shift_tz_2023.domain.usecase.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
-class HomeViewModel: ViewModel() {
+class HomeViewModel(
+    private val getCardInfo: GetCardInfoByBIN,
+    private val insertBankToDB: InsertBankToDB,
+    private val insertCardInfoToDB: InsertCardInfoToDB,
+    private val insertCountryToDB: InsertCountryToDB,
+    private val insertNumberToDB: InsertNumberToDB
+): ViewModel() {
 
-    private val getCardInfo = GetCardInfoByBIN(CardInfoRepositoryImpl())
-
-    private var _cardInfo = MutableLiveData<CardInfoModel>()
-    val cardInfo: LiveData<CardInfoModel> = _cardInfo
+    private var _cardInfo = MutableLiveData<UiCardInfoModel>()
+    val cardInfo: LiveData<UiCardInfoModel> = _cardInfo
 
     private var _emptyField = MutableLiveData<Unit>()
     val emptyField:  LiveData<Unit>  = _emptyField
@@ -29,6 +35,12 @@ class HomeViewModel: ViewModel() {
         }
     }
 
+    fun insertData(model:UiCardInfoModel) = viewModelScope.launch {
+        insertBankToDB(model.bin, model.bank)
+        insertCardInfoToDB(model.bin, model.brand, model.prepaid, model.scheme, model.type)
+        insertCountryToDB(model.bin,model.country)
+        insertNumberToDB(model.bin, model.number)
+    }
 
 }
 

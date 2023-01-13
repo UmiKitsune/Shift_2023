@@ -14,4 +14,7 @@
     <string name="home_bank">bank</string>
 
     <string name="home_fragment_latitude_longitude">(latitude: %d, longitude: %d)</string>
+    <string name="history_bin">BIN:</string>
+    <string name="history_bank_name">bank name:</string>
+    <string name="history_scheme">scheme:</string>
 </resources>
