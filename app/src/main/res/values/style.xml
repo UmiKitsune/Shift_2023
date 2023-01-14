@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="text_titles_style">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:alpha">0.6</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="text_cards_info_style">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="full_info_text_style">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="mini_title_style">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:alpha">0.6</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

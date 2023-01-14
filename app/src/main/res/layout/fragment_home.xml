@@ -7,26 +7,52 @@
     android:orientation="vertical"
     tools:context=".ui.HomeFragment">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/homeBIN"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="25dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/etLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:maxLength="8"
-            android:inputType="number"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <EditText
+                android:id="@+id/homeBIN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="12"
+                android:maxLength="8"
+                android:inputType="number"/>
+
+            <ImageButton
+                android:id="@+id/homeBtnGetBINData"
+                android:src="@drawable/ic_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/home_search_button" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            android:id="@+id/homeUnderBINInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:alpha="0.8"
+            android:padding="5dp"
+            android:textSize="14sp"
+            android:text="@string/home_under_bin_info"
+            app:layout_constraintStart_toStartOf="@id/etLayout"
+            app:layout_constraintTop_toBottomOf="@id/etLayout"
+            app:layout_constraintEnd_toEndOf="@id/etLayout"
             />
-        <ImageButton
-            android:id="@+id/homeBtnGetBINData"
-            android:src="@drawable/ic_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/home_search_button" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <ScrollView
@@ -38,205 +64,292 @@
             android:layout_height="wrap_content"
             android:padding="20dp">
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".56" />
+
             <TextView
                 android:id="@+id/scheme"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_scheme"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/homeScheme"
+                style="@style/text_cards_info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:paddingBottom="10dp"
-                tools:text="Visa"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/scheme"
-                app:layout_constraintStart_toStartOf="parent"/>
+                tools:text="Visa" />
 
             <TextView
                 android:id="@+id/brand"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_brand"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toBottomOf="@id/homeScheme"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homeScheme" />
 
             <TextView
                 android:id="@+id/homeBrand"
+                style="@style/text_cards_info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:paddingBottom="10dp"
-                tools:text="Visa/Dankort"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/brand"
-                app:layout_constraintStart_toStartOf="parent"/>
+                tools:text="Visa/Dankort" />
 
             <TextView
                 android:id="@+id/cardNumber"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_card_number"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toBottomOf="@id/homeBrand"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homeBrand" />
 
             <TextView
                 android:id="@+id/length"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingEnd="10dp"
                 android:text="@string/home_length"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toBottomOf="@id/cardNumber"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardNumber" />
 
             <TextView
                 android:id="@+id/homeCardNumberLength"
+                style="@style/text_cards_info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                tools:text="16"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/length"
-                app:layout_constraintStart_toStartOf="parent"/>
+                tools:text="16" />
 
             <TextView
                 android:id="@+id/luhn"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_luhn"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toBottomOf="@id/cardNumber"
-                app:layout_constraintStart_toEndOf="@id/length"/>
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/length"
+                app:layout_constraintTop_toBottomOf="@id/cardNumber" />
 
             <TextView
                 android:id="@+id/homeCardNumberLuhn"
+                style="@style/text_cards_info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                tools:text="Yes"
+                app:layout_constraintStart_toEndOf="@id/length"
                 app:layout_constraintTop_toBottomOf="@id/luhn"
-                app:layout_constraintStart_toEndOf="@id/length"/>
+                tools:text="Yes" />
 
             <TextView
                 android:id="@+id/type"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_type"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/homeType"
+                style="@style/text_cards_info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:paddingBottom="10dp"
-                tools:text="Debit"
+                app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/type"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                tools:text="Debit" />
 
             <TextView
                 android:id="@+id/prepaid"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_prepaid"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toBottomOf="@id/homeType"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/homeType" />
 
             <TextView
                 android:id="@+id/homePrepaid"
+                style="@style/text_cards_info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:paddingBottom="10dp"
-                tools:text="No"
+                app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/prepaid"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                tools:text="No" />
 
             <TextView
                 android:id="@+id/country"
+                style="@style/text_titles_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/home_country"
                 android:textAllCaps="true"
-                app:layout_constraintTop_toBottomOf="@id/homePrepaid"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/homePrepaid" />
 
             <TextView
                 android:id="@+id/homeAlpha2"
+                style="@style/text_cards_info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:paddingBottom="10dp"
-                tools:text="dn"
+                android:paddingEnd="7dp"
+                android:paddingBottom="3dp"
+                app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/country"
-                app:layout_constraintEnd_toStartOf="@id/homeCountry"/>
+                tools:text="dn" />
 
             <TextView
                 android:id="@+id/homeCountry"
-                android:layout_width="wrap_content"
+                style="@style/text_cards_info_style"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                tools:text="Denmark"
+                android:paddingBottom="3dp"
+                app:layout_constraintStart_toEndOf="@id/homeAlpha2"
                 app:layout_constraintTop_toBottomOf="@id/country"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                tools:text="Denmark" />
 
             <TextView
                 android:id="@+id/homeLatitudeLongitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="50dp"
-                tools:text="(latitude: 56, longitude: 10)"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/homeCountry"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                tools:text="(latitude: 56, longitude: 10)" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/homeLatitudeLongitude"
-                android:orientation="vertical">
+                app:layout_constraintTop_toBottomOf="@id/homeLatitudeLongitude">
 
                 <TextView
                     android:id="@+id/bank"
+                    style="@style/text_titles_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
                     android:text="@string/home_bank"
-                    android:textAllCaps="true" />
+                    android:textAllCaps="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bankName"
+                    style="@style/text_titles_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="6dp"
+                    android:text="@string/home_name_u0020_u0020"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bank" />
 
                 <TextView
                     android:id="@+id/homeBankName"
-                    android:layout_width="match_parent"
+                    style="@style/text_cards_info_style"
+                    android:textSize="18sp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    tools:text="Jyske Bank"/>
+                    app:layout_constraintStart_toEndOf="@id/bankName"
+                    app:layout_constraintBaseline_toBaselineOf="@id/bankName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Jyske Bank" />
+
+                <TextView
+                    android:id="@+id/bankCity"
+                    style="@style/text_titles_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="6dp"
+                    android:text="@string/home_city_u0020_u0020"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeBankName" />
 
                 <TextView
                     android:id="@+id/homeBankCity"
-                    android:layout_width="match_parent"
+                    style="@style/text_cards_info_style"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    tools:text="Hjørring"/>
+                    android:textSize="18sp"
+                    android:textColor="@color/yellow"
+                    app:layout_constraintBaseline_toBaselineOf="@id/bankCity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/bankCity"
+                    tools:text="Hjørring" />
+
+                <TextView
+                    android:id="@+id/bankUrl"
+                    style="@style/text_titles_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="6dp"
+                    android:text="@string/home_url_u0020_u0020"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeBankCity" />
 
                 <TextView
                     android:id="@+id/homeBankUrl"
+                    style="@style/text_cards_info_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="www.jyskebank.dk"/>
+                    android:textSize="18sp"
+                    android:autoLink="web"
+                    app:layout_constraintStart_toEndOf="@id/bankUrl"
+                    app:layout_constraintBaseline_toBaselineOf="@id/bankUrl"
+                    tools:text="www.jyskebank.dk" />
+
+                <TextView
+                    android:id="@+id/bankNumber"
+                    style="@style/text_titles_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_number_u0020_u0020"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bankUrl" />
 
                 <TextView
                     android:id="@+id/homeBankNumber"
-                    android:layout_width="wrap_content"
+                    style="@style/text_cards_info_style"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    tools:text="+4589893300"/>
+                    android:textSize="16sp"
+                    android:autoLink="phone"
+                    app:layout_constraintStart_toEndOf="@id/bankNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@id/bankNumber"
+                    tools:text="+4589893300" />
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -244,4 +357,3 @@
 
 
 </LinearLayout>
-<!--todo: при вводе в клавиатуре будет значек поиска тоже!!?-->

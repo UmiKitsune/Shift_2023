@@ -10,14 +10,19 @@ import com.example.shift_tz_2023.data.database.entities.CountryEntity
 import com.example.shift_tz_2023.data.database.entities.NumberEntity
 import com.example.shift_tz_2023.data.web.RetrofitFactory
 import com.example.shift_tz_2023.domain.*
+import java.lang.NullPointerException
 
 class CardInfoRepositoryImpl(context: Context) : CardInfoRepository {
 
     private val dao = CardInfoDatabase.getInstance(context).getDao()
 
     override suspend fun getCardInfoByBIN(bin: Int): UiCardInfoModel {
-        return Mapper.toUICardInfoModelFromAPI(bin, RetrofitFactory.api.getCardInfo(bin).body()!!)
-        //todo: сделать через try catch
+        var res = try {
+            Mapper.toUICardInfoModelFromAPI(bin, RetrofitFactory.api.getCardInfo(bin).body()!!)
+        } catch (e: NullPointerException) {
+            return UiCardInfoModel(0)
+        }
+        return res
     }
 
     override suspend fun insertBankToDB(bin: Int, bank: BankUI) {

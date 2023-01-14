@@ -7,9 +7,8 @@ import com.example.shift_tz_2023.data.web.model.CardInfoModel
 import com.example.shift_tz_2023.databinding.ItemHistoryBinding
 import com.example.shift_tz_2023.domain.UiCardInfoModel
 
-class CardHistoryAdapter: RecyclerView.Adapter<CardHistoryViewHolder>() {
+class CardHistoryAdapter(private val onItemClick: (Int) -> Unit): RecyclerView.Adapter<CardHistoryViewHolder>() {
 
-    // TODO: поменять  CardInfoModel на модель в папке domain + mapper
     var cardInfoList: List<UiCardInfoModel> = emptyList()
     set(newValue) {
         field = newValue
@@ -25,6 +24,7 @@ class CardHistoryAdapter: RecyclerView.Adapter<CardHistoryViewHolder>() {
     override fun onBindViewHolder(holder: CardHistoryViewHolder, position: Int) {
         val cardInfo = cardInfoList[position]
         holder.bind(cardInfo)
+        holder.itemView.setOnClickListener{onItemClick(position)}
     }
 
     override fun getItemCount(): Int = cardInfoList.size

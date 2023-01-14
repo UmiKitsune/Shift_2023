@@ -6,7 +6,6 @@ import com.example.shift_tz_2023.data.database.entities.*
 
 @Dao
 interface CardInfoDao {
-    //todo: возможно убрать (onConflict = OnConflictStrategy.REPLACE)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCardInfo(cardInfoEntity: CardInfoEntity)

@@ -1,9 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/item_border"
     tools:context=".ui.FullInfoFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            style="@style/text_titles_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_scheme"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullScheme"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Visa" />
+
+        <TextView
+            style="@style/text_titles_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_type"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullType"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Debit" />
+
+        <TextView
+            style="@style/text_titles_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_brand"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullBrand"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Visa/Dankort" />
+
+        <TextView
+            style="@style/text_titles_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_prepaid"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullPrepaid"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="No" />
+
+        <TextView
+            style="@style/text_titles_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/full_number"
+            android:textAllCaps="true" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/home_length"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullCardNumberLength"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="16" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/home_luhn"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullCardNumberLuhn"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            tools:text="Yes" />
+
+
+        <TextView
+            style="@style/text_titles_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_country"
+            android:textAllCaps="true" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/full_numeric"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullNumeric"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="208" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/full_alpha2"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullAlpha2"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="dn" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/full_country_name"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullCountryName"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="Denmark" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="currency"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullCountryCurrency"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingBottom="6dp"
+            tools:text="DKK" />
+
+        <TextView
+            android:id="@+id/fullLatitudeLongitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingStart="15dp"
+            tools:text="(latitude: 56, longitude: 10)" />
+
+        <TextView
+            style="@style/text_titles_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_bank"
+            android:textAllCaps="true" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/home_name_u0020_u0020"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullBankName"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="Jyske Bank" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/full_city"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullBankCity"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/yellow"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="Hjørring" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/full_url"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullBankUrl"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="www.jyskebank.dk" />
+
+        <TextView
+            style="@style/mini_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:text="@string/full_phone"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/fullBankNumber"
+            style="@style/full_info_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="phone"
+            android:paddingStart="15dp"
+            android:paddingBottom="8dp"
+            tools:text="+4589893300" />
+
+    </LinearLayout>
+</ScrollView>

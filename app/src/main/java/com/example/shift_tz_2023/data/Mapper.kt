@@ -9,7 +9,7 @@ import com.example.shift_tz_2023.domain.NumberUI
 import com.example.shift_tz_2023.domain.UiCardInfoModel
 
 object Mapper {
-    fun toUICardInfoModelFromAPI(bin: Int,cardInfo: CardInfoModel):UiCardInfoModel {
+    fun toUICardInfoModelFromAPI(bin: Int, cardInfo: CardInfoModel): UiCardInfoModel {
         val bank = cardInfo.bank
         val country = cardInfo.country
         val number = cardInfo.number
@@ -33,7 +33,7 @@ object Mapper {
         )
     }
 
-    fun toUICardInfoModelFromDB (dbList: List<FullCardInfo>): List<UiCardInfoModel> {
+    fun toUICardInfoModelFromDB(dbList: List<FullCardInfo>): List<UiCardInfoModel> {
         return dbList.map { dbInfo ->
             val bank = dbInfo.bank
             val country = dbInfo.country

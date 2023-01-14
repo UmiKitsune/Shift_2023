@@ -34,6 +34,9 @@ class ViewModelFactory(context: Context): ViewModelProvider.Factory {
             HistoryViewModel::class.java -> {
                 HistoryViewModel(getDataFromDB)
             }
+            FullInfoViewModel::class.java -> {
+                FullInfoViewModel(getDataFromDB)
+            }
             else -> throw IllegalStateException("Unknown view model class")
         }
         return viewModel as T

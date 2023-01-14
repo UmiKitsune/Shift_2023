@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph_bottom"
-    app:startDestination="@id/homeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_full_info"
+    app:startDestination="@id/historyFragment">
 
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.shift_tz_2023.ui.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
-    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.shift_tz_2023.ui.HistoryFragment"
@@ -22,14 +16,11 @@
         <argument
             android:name="position"
             app:argType="integer"/>
-        <argument
-            android:name="test"
-            app:argType="string"
-            android:defaultValue="hi" />
     </fragment>
     <fragment
         android:id="@+id/fullInfoFragment"
         android:name="com.example.shift_tz_2023.ui.FullInfoFragment"
         android:label="@string/menu_full_info"
         tools:layout="@layout/fragment_full_info" />
+
 </navigation>

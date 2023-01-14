@@ -9,8 +9,6 @@ class CardHistoryViewHolder(
     private val binding: ItemHistoryBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    // TODO: добавить бин из поля в предыдущем фрагменте
-
     fun bind(info: UiCardInfoModel) {
         with(binding) {
             itemBIN.text = info.bin.toString()

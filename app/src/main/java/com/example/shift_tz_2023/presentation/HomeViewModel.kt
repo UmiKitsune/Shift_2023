@@ -25,10 +25,14 @@ class HomeViewModel(
     private var _emptyField = MutableLiveData<Unit>()
     val emptyField:  LiveData<Unit>  = _emptyField
 
+    private var _fieldField = MutableLiveData<Unit>()
+    val fieldField:  LiveData<Unit>  = _fieldField
+
     fun onSearchButtonClick(bin: String) = viewModelScope.launch {
         if (bin.isEmpty() || bin.length < 6) {
             _emptyField.value = Unit
         } else {
+            _fieldField.value = Unit
             _cardInfo.value = CoroutineScope(Dispatchers.IO).async {
                 getCardInfo.invoke(bin.toInt())
             }.await()

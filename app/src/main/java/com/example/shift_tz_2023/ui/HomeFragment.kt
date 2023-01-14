@@ -1,28 +1,27 @@
 package com.example.shift_tz_2023.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.example.shift_tz_2023.R
-import com.example.shift_tz_2023.data.database.CardInfoDatabase
-import com.example.shift_tz_2023.data.database.entities.BankEntity
-import com.example.shift_tz_2023.data.database.entities.CardInfoEntity
-import com.example.shift_tz_2023.data.database.entities.CountryEntity
-import com.example.shift_tz_2023.data.database.entities.NumberEntity
 import com.example.shift_tz_2023.databinding.FragmentHomeBinding
 import com.example.shift_tz_2023.presentation.HomeViewModel
 import com.example.shift_tz_2023.presentation.ViewModelFactory
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels { ViewModelFactory(requireContext()) }
+    lateinit var dataPasser: DataFromFrToAct
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        dataPasser = context as DataFromFrToAct
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,44 +37,59 @@ class HomeFragment : Fragment() {
 
         binding.homeBtnGetBINData.setOnClickListener {
             val bin = binding.homeBIN.text.trim().toString()
-            viewModel.onSearchButtonClick(bin) //45717360
+            viewModel.onSearchButtonClick(bin)
 
             viewModel.emptyField.observe(viewLifecycleOwner, {
-                binding.homeScheme.text = "error!!!!!"
+                warning(R.color.red, R.string.home_empty_field_warning)
             })
 
-            //todo: ошибка если пустая строка или меньше 6 текст под полем ввода
-            viewModel.cardInfo.observe(viewLifecycleOwner, {
-                viewModel.insertData(it)
-                if (it.bank.name.isEmpty()) {
-                    binding.homeScheme.text = "empty"
+            viewModel.fieldField.observe(viewLifecycleOwner, {
+                warning(R.color.gray, R.string.home_under_bin_info)
+            })
+
+            viewModel.cardInfo.observe(viewLifecycleOwner, { uiCardInfo ->
+                if (uiCardInfo.bin == 0 && uiCardInfo.scheme.isEmpty()) {
+                    warning(R.color.red, R.string.home_null_exception)
                 } else {
+                    viewModel.insertData(uiCardInfo)
                     with(binding) {
-                        homeScheme.text = it.scheme
-                        homeBrand.text = it.brand
-                        homeCardNumberLength.text = it.number.length.toString()
-                        homeCardNumberLuhn.text = if (it.number.luhn) "Yes" else "No"
-                        homeType.text = it.type
-                        homePrepaid.text = if (it.prepaid) "Yes" else "No"
-                        homeCountry.text = it.country.name
-                        homeAlpha2.text = it.country.alpha2
+                        warning(R.color.gray, R.string.home_under_bin_info)
+                        homeScheme.text = uiCardInfo.scheme
+                        homeBrand.text = uiCardInfo.brand
+                        homeCardNumberLength.text = uiCardInfo.number.length.toString()
+                        homeCardNumberLuhn.text = if (uiCardInfo.number.luhn) "Yes" else "No"
+                        homeType.text = uiCardInfo.type
+                        homePrepaid.text = if (uiCardInfo.prepaid) "Yes" else "No"
+                        homeCountry.text = uiCardInfo.country.name
+                        homeAlpha2.text = uiCardInfo.country.alpha2
                         homeLatitudeLongitude.text = resources.getString(
                             R.string.home_fragment_latitude_longitude,
-                            it.country.latitude,
-                            it.country.longitude
+                            uiCardInfo.country.latitude.toInt(),
+                            uiCardInfo.country.longitude.toInt()
                         )
-                        homeBankName.text = it.bank.name
-                        homeBankCity.text = it.bank.city
-                        homeBankUrl.text = it.bank.url
-                        homeBankNumber.text = it.bank.phone
+                        homeBankName.text = uiCardInfo.bank.name
+                        homeBankCity.text = uiCardInfo.bank.city
+                        homeBankCity.setOnClickListener {
+                            dataPasser.mapPass(uiCardInfo.country.latitude, uiCardInfo.country.latitude)
+                        }
+                        homeBankUrl.text = uiCardInfo.bank.url
+                        homeBankUrl.setOnClickListener {
+                            dataPasser.urlPass(uiCardInfo.bank.url)
+                        }
+                        homeBankNumber.text = uiCardInfo.bank.phone
+                        homeBankNumber.setOnClickListener {
+                            //todo: работает только если 1 номер(пока не успела придумать парсер)
+                            dataPasser.phonePass(uiCardInfo.bank.phone)
+                        }
                     }
-
                 }
-
             })
-
         }
+    }
 
+    private fun warning(color: Int, text: Int) {
+        binding.homeUnderBINInfo.setTextColor(requireActivity().getColor(color))
+        binding.homeUnderBINInfo.text = resources.getString(text)
     }
 }
 

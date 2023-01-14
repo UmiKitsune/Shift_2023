@@ -12,9 +12,24 @@
     <string name="home_prepaid">prepaid</string>
     <string name="home_country">country</string>
     <string name="home_bank">bank</string>
-
+    <string name="home_under_bin_info">Enter BIN (the first 6 or 8 card chars)</string>
     <string name="home_fragment_latitude_longitude">(latitude: %d, longitude: %d)</string>
-    <string name="history_bin">BIN:</string>
-    <string name="history_bank_name">bank name:</string>
-    <string name="history_scheme">scheme:</string>
+    <string name="home_empty_field_warning">"Empty or less then 6 numbers"</string>
+    <string name="home_null_exception">"Wrong number or char count"</string>
+
+    <string name="history_bin">BIN:\u0020\u0020</string>
+    <string name="history_bank_name">bank name:\u0020\u0020</string>
+    <string name="history_scheme">scheme:\u0020\u0020</string>
+    <string name="home_number_u0020_u0020">number:\u0020\u0020</string>
+    <string name="home_url_u0020_u0020">url:\u0020\u0020</string>
+    <string name="home_city_u0020_u0020">city:\u0020\u0020</string>
+    <string name="home_name_u0020_u0020">name:\u0020\u0020</string>
+    <string name="menu_full_info">Информация о карте</string>
+    <string name="full_number">number</string>
+    <string name="full_numeric">numeric</string>
+    <string name="full_alpha2">alpha2</string>
+    <string name="full_country_name">name</string>
+    <string name="full_city">city</string>
+    <string name="full_url">url</string>
+    <string name="full_phone">phone</string>
 </resources>
